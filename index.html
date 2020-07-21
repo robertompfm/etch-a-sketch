@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>EtchASketch</title> 
+        <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet"> 
+        <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="styles/reset.css">
+        <link rel="stylesheet" href="styles/style.css">
+        <script src="https://kit.fontawesome.com/a9a7b0e0c1.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <div class="frame">
+
+            <div class="top-container">
+                <p>DIGITAL</p>
+                <h1 id="title">EtchASketch</h1>
+                <a href="https://github.com/robertompfm">BY ROBERTOMPFM</a>
+                <div class="resolution">
+                    <label for="resolution__input">Resolution</label>
+                    <div id="resolution__input">
+                        <input type="number" id="number-input" min='1' max='99' value="16">
+                        <button id="apply-btn">Apply</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="screen">
+                <div class="grid">
+                </div>
+            </div>
+
+            <div class="buttons">
+                <div class="choice-buttons">
+                    <button id="rock" class="choice-btn">
+                    </button>
+                    <button id="paper" class="choice-btn">
+                    </button>
+                    <button id="scissors" class="choice-btn">
+                    </button>
+                </div>
+            </div>
+
+        </div>
+                
+        <script src="scripts/script.js"></script>
+    </body>
+</html>
