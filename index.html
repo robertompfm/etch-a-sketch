@@ -20,8 +20,14 @@
                 <div class="resolution">
                     <label for="resolution__input">Resolution</label>
                     <div id="resolution__input">
+                        <div class="arrows">
+                            <button id="arrow-up" class="arrow fa fa-chevron-up">
+                            </button>
+                            <button id="arrow-down" class="arrow fa fa-chevron-down">
+                            </button>
+                        </div>
                         <input type="number" id="number-input" min='1' max='99' value="16">
-                        <button id="apply-btn">Apply</button>
+                        <button id="apply">Apply</button>
                     </div>
                 </div>
             </div>
@@ -33,12 +39,26 @@
 
             <div class="buttons">
                 <div class="choice-buttons">
-                    <button id="rock" class="choice-btn">
-                    </button>
-                    <button id="paper" class="choice-btn">
-                    </button>
-                    <button id="scissors" class="choice-btn">
-                    </button>
+                    <div>
+                        <button id="classic" class="choice-btn">
+                        </button>
+                        <label for="classic">Classic</label>    
+                    </div>
+                    <div>
+                        <button id="rainbow" class="choice-btn">
+                        </button>
+                        <label for="raibow">Rainbow</label>
+                    </div>
+                    <div>
+                        <button id="gradient" class="choice-btn">
+                        </button>
+                        <label for="gradient">Gradient</label>
+                    </div>
+                    <div>
+                        <button id="clear" class="choice-btn">
+                        </button>
+                        <label for="clear">Clear</label>
+                    </div>
                 </div>
             </div>
 
