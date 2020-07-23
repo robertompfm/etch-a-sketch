@@ -55,7 +55,6 @@ apply.addEventListener('click', applyNewGrid)
 
 
 // HOVER FUNCTIONS
-
 function getRandomNumber(min, max) {
     return min + Math.floor(Math.random() * (max - min + 1));
 }
@@ -68,6 +67,30 @@ function generateRandomColor() {
     return color;
 }
 
+function getRGBIndex(rgb) {
+    let indexes = [];
+    if (rgb === '') {
+        return 230;
+    }
+    indexes = rgb.substring(
+        (rgb.indexOf('(') + 1), 
+        rgb.indexOf(')')
+    ).split(',');
+    indexes = indexes.map(x => Number(x));
+    if (indexes[0] !== indexes[1] || indexes[0] !== indexes[2]) {
+        return 230;
+    }
+    return indexes[0];
+}
+
+function makeDarker(gridSqr) {
+    let rgb = gridSqr.style.backgroundColor;
+    let rgbIndex = getRGBIndex(rgb);
+    rgbIndex -= 23;
+    rgbIndex = rgbIndex < 0 ? 0: rgbIndex;
+    return `rgb(${rgbIndex}, ${rgbIndex}, ${rgbIndex})`;
+}
+
 function paintSquare(e) {
     let gridSqr = e.target;
     let color;
@@ -75,29 +98,28 @@ function paintSquare(e) {
         case MODE_OPTIONS[0]:
             color = 'rgba(0, 0, 0, .8)';
             break;
-            case MODE_OPTIONS[1]:
-                color = generateRandomColor();
-                break;
-            }
-            gridSqr.style.background = color;
-        }
+        case MODE_OPTIONS[1]:
+            color = generateRandomColor();
+            break;
+        case MODE_OPTIONS[2]:
+            color = makeDarker(gridSqr);
+    }
+    gridSqr.style.background = color;
+}
         
         
         
-        // MODE FUNCTIONS
+// MODE FUNCTIONS
 function setClassicMode() {
     mode = MODE_OPTIONS[0];
-    // console.log(mode);
 }
 
 function setRainbowMode() {
     mode = MODE_OPTIONS[1];
-    // console.log(mode);
 }
 
 function setGradientMode() {
     mode = MODE_OPTIONS[2];
-    // console.log(mode);
 }
 
 
@@ -108,7 +130,7 @@ let gradientBtn = document.querySelector('#gradient');
 
 classicBtn.addEventListener('click', setClassicMode);
 rainbowBtn.addEventListener('click', setRainbowMode);
-// gradientBtn.addEventListener('click', setGradientMode);
+gradientBtn.addEventListener('click', setGradientMode);
 
 
 // CLEAR FUNCTION
